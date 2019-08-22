@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@now/node@^0.12.5":
-  version "0.12.5"
-  resolved "https://registry.npm.taobao.org/@now/node/download/@now/node-0.12.5.tgz#413e84fd4d3693b5a8af35aee922e939c51eae8d"
-  integrity sha1-QT6E/U02k7WorzWu6SLpOcUero0=
+"@now/node@^0.12.7":
+  version "0.12.7"
+  resolved "https://registry.yarnpkg.com/@now/node/-/node-0.12.7.tgz#d70e4357fd50a3a3bfd62a7f341947a8f47f8cf3"
+  integrity sha512-ksV0lf9sF/ppS9UMPoBxaHLw6bh2jceJzjoSCrhKZJbKi0Hi82UiZCHJ7R7ZSVXxP1B++dRis4f2xvIEIyvbOA==
   dependencies:
     "@types/node" "*"
 
