@@ -1,0 +1,41 @@
+{
+  "name": "swiss",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@vue/composition-api": "^0.6.1",
+    "dayjs": "^1.8.28",
+    "got": "^11.3.0",
+    "ky": "^0.20.0",
+    "lodash": "^4.17.15",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0",
+    "vuetify": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.155",
+    "@vercel/node": "^1.7.1",
+    "@vue/cli-plugin-router": "~4.4.0",
+    "@vue/cli-plugin-typescript": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "prettier": "^2.0.5",
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
+    "typescript": "~3.9.3",
+    "vue-cli-plugin-vuetify": "^2.0.5",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.5.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
+}

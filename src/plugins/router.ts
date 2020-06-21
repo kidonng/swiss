@@ -1,0 +1,98 @@
+import Vue from 'vue'
+import VueRouter, { RouteConfig } from 'vue-router'
+
+Vue.use(VueRouter)
+
+export const routes: RouteConfig[] = [
+  {
+    name: 'Home',
+    path: '/',
+    component: () => import(/* webpackChunkName: "home" */ '../views/home.vue'),
+    meta: {
+      icon: 'home',
+    },
+  },
+  {
+    name: 'ID Number',
+    path: '/id-number',
+    component: () =>
+      import(/* webpackChunkName: "id-number" */ '../views/id-number.vue'),
+    meta: {
+      icon: 'identifier',
+    },
+  },
+  {
+    name: 'Bilibili AV BV',
+    path: '/bilibili-av-bv',
+    component: () =>
+      import(
+        /* webpackChunkName: "bilibili-av-bv" */ '../views/bilibili-av-bv/index.vue'
+      ),
+    meta: {
+      icon: 'swap-horizontal',
+    },
+  },
+  {
+    name: 'MIUI Dev Link',
+    path: '/miui-dev-link',
+    component: () =>
+      import(
+        /* webpackChunkName: "miui-dev-link" */ '../views/miui-dev-link.vue'
+      ),
+    meta: {
+      icon: 'link',
+    },
+  },
+  {
+    name: 'Substats Badge Maker',
+    path: '/substats-badge-maker',
+    component: () =>
+      import(
+        /* webpackChunkName: "substats-badge-maker" */ '../views/substats-badge-maker/index.vue'
+      ),
+    meta: {
+      icon: 'shield-star',
+    },
+  },
+  {
+    name: 'Microsoft Store Info',
+    path: '/microsoft-store-info',
+    component: () =>
+      import(
+        /* webpackChunkName: "microsoft-store-info" */ '../views/microsoft-store-info.vue'
+      ),
+    meta: {
+      icon: 'microsoft',
+    },
+  },
+  {
+    name: 'Progress',
+    path: '/progress',
+    component: () =>
+      import(/* webpackChunkName: "progress" */ '../views/progress.vue'),
+    meta: {
+      icon: 'progress-clock',
+    },
+  },
+  {
+    name: 'CET Score',
+    path: '/cet-score',
+    component: () =>
+      import(/* webpackChunkName: "cet-score" */ '../views/cet-score.vue'),
+    meta: {
+      icon: 'counter',
+    },
+  },
+]
+
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes,
+})
+
+router.afterEach(({ name }) => {
+  document.title = name!
+})
+
+export default router
