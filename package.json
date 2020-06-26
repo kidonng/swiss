@@ -12,7 +12,8 @@
     "ky": "^0.20.0",
     "lodash": "^4.17.15",
     "vue": "^2.6.11",
-    "vue-router": "^3.2.0",
+    "vue-router": "^3.3.4",
+    "vue-router-ga-lite": "0.2.0",
     "vuetify": "^2.3.0"
   },
   "devDependencies": {

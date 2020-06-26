@@ -126,6 +126,11 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/google.analytics@^0.0.40":
+  version "0.0.40"
+  resolved "https://registry.yarnpkg.com/@types/google.analytics/-/google.analytics-0.0.40.tgz#35526e9d78333423c430ade1c821ce54d0f0f850"
+  integrity sha512-R3HpnLkqmKxhUAf8kIVvDVGJqPtaaZlW4yowNwjOZUTmYUQEgHh8Nh5wkSXKMroNAuQM8gbXJHmNbbgA8tdb7Q==
+
 "@types/http-cache-semantics@*":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/http-cache-semantics/-/http-cache-semantics-4.0.0.tgz#9140779736aa2655635ee756e2467d787cfe8a2a"
@@ -2747,6 +2752,11 @@ function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
   integrity sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
+
+ga-lite@^2.0.1:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/ga-lite/-/ga-lite-2.0.5.tgz#f0528dfb27feee4ac10b2f770f0a1a88075652f8"
+  integrity sha512-dpf7m9VwuvybwvhvpqtBxe/UvN4Vy1Ih6h2YSgL+SyOX62icHzscLNC21jYwUkzXB7aV/q57ZQfOaLAFVNurhQ==
 
 get-caller-file@^2.0.1:
   version "2.0.5"
@@ -6778,10 +6788,20 @@ vue-loader@^15.9.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-router@^3.2.0:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.3.2.tgz#0099de402edb2fe92f9711053ab5a2156f239cad"
-  integrity sha512-5sEbcfb7MW8mY8lbUVbF4kgcipGXsagkM/X+pb6n0MhjP+RorWIUTPAPSqgPaiPOxVCXgAItBl8Vwz8vq78faA==
+vue-router-ga-lite@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/vue-router-ga-lite/-/vue-router-ga-lite-0.2.0.tgz#543bf1e715c8a95bc50228305ff15c9d75cf17f9"
+  integrity sha512-rkhcYbqDwoXo7eW4pp1A0SVD1aoDa5QnJYa01En+B75NZ4GKgPmvPLjo9vCxySxbp4O58QmdKNZavYeumovpbg==
+  dependencies:
+    "@types/google.analytics" "^0.0.40"
+    ga-lite "^2.0.1"
+    vue "^2.6.10"
+    vue-router "^3.1.2"
+
+vue-router@^3.1.2, vue-router@^3.3.4:
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.3.4.tgz#4e38abc34a11c41b6c3d8244449a2e363ba6250b"
+  integrity sha512-SdKRBeoXUjaZ9R/8AyxsdTqkOfMcI5tWxPZOUX5Ie1BTL5rPSZ0O++pbiZCeYeythiZIdLEfkDiQPKIaWk5hDg==
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
@@ -6804,7 +6824,7 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@^2.6.11:
+vue@^2.6.10, vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
