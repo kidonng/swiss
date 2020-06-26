@@ -84,6 +84,15 @@ export const routes: RouteConfig[] = [
       icon: 'counter',
     },
   },
+  {
+    name: 'xkcd why',
+    path: '/xkcd-why',
+    component: () =>
+      import(/* webpackChunkName: "xkcd-why" */ '../views/xkcd-why.vue'),
+    meta: {
+      icon: 'help-circle',
+    },
+  },
 ]
 
 const router = new VueRouter({
