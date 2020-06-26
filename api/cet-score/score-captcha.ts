@@ -8,24 +8,24 @@ export default async ({ query }: NowRequest, res: NowResponse) => {
     'http://cache.neea.edu.cn/Imgs.do',
     {
       headers: {
-        referer: 'http://cet.neea.edu.cn/'
+        referer: 'http://cet.neea.edu.cn/',
       },
       searchParams: {
         c: 'CET',
-        ik
-      }
+        ik,
+      },
     }
   )
 
   const result = {
-    imgs: hash => `http://cet.neea.edu.cn/imgs/${hash}.png`
+    imgs: (hash: string) => `http://cet.neea.edu.cn/imgs/${hash}.png`,
   }
   const { body } = await got(eval(hash), {
-    responseType: 'buffer'
+    responseType: 'buffer',
   })
 
   res.status(200)
   res.setHeader('content-type', 'image/jpg')
-  res.setHeader('set-cookie', headers['set-cookie'])
+  res.setHeader('set-cookie', headers['set-cookie']!)
   res.end(body)
 }

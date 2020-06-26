@@ -10,16 +10,16 @@ export default async (
   const { body } = await got('http://cache.neea.edu.cn/cet/query', {
     headers: {
       referer: 'http://cet.neea.edu.cn/',
-      cookie
+      cookie,
     },
     searchParams: {
       data: [exam, no, Name].join(),
-      v
-    }
+      v,
+    },
   })
 
   const result = {
-    callback: cb => cb
+    callback: (cb: string) => cb,
   }
   json(eval(body))
 }
