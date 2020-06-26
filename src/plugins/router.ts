@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
+import { ga } from 'vue-router-ga-lite'
 
 Vue.use(VueRouter)
 
@@ -94,5 +95,7 @@ const router = new VueRouter({
 router.afterEach(({ name }) => {
   document.title = name!
 })
+
+ga('UA-140053908-5', router)
 
 export default router
