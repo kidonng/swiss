@@ -62,10 +62,12 @@ import { sources, badge, Source } from './utils'
 export default defineComponent({
   name: 'substats-badge-creator',
   setup() {
-    const items = Object.entries(sources).map(([value, { title: text }]) => ({
-      text,
-      value,
-    }))
+    const items = Object.entries(sources).map(
+      ([value, { category, title }]) => ({
+        text: `${category} - ${title}`,
+        value,
+      })
+    )
     const source = ref<Source>('github')
     const queryKey = ref('spencerwooo')
     const result = ref()

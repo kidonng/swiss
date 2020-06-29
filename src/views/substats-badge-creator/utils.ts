@@ -19,6 +19,7 @@ export const logos = {
 export const sources: Record<
   string,
   {
+    category: string
     title: string
     logo?: string
     logoColor?: string
@@ -31,7 +32,8 @@ export const sources: Record<
   }
 > = {
   feedly: {
-    title: 'RSS - Feedly',
+    category: 'RSS',
+    title: 'Feedly',
     logo: 'feedly',
     logoColor: 'white',
     label: 'Feedly RSS',
@@ -41,7 +43,8 @@ export const sources: Record<
     link: (queryKey: string) => queryKey,
   },
   inoreader: {
-    title: 'RSS - Inoreader',
+    category: 'RSS',
+    title: 'Inoreader',
     logo: logos.inoreader,
     label: 'Inoreader RSS',
     labelColor: '007bc7',
@@ -50,7 +53,8 @@ export const sources: Record<
     link: (queryKey: string) => queryKey,
   },
   newsblur: {
-    title: 'RSS - NewsBlur',
+    category: 'RSS',
+    title: 'NewsBlur',
     logo: logos.newsblur,
     label: 'NewsBlur RSS',
     labelColor: '282c34',
@@ -59,7 +63,8 @@ export const sources: Record<
     link: (queryKey: string) => queryKey,
   },
   jikeFollower: {
-    title: 'Social Media - Jike (followers)',
+    category: 'Social Media',
+    title: 'Jike (followers)',
     logo: logos.jike,
     label: '即刻 被关注',
     labelColor: '282c34',
@@ -67,7 +72,8 @@ export const sources: Record<
     link: (queryKey: string) => `https://m.okjike.com/users/${queryKey}`,
   },
   jikeHighlights: {
-    title: 'Social Media - Jike (highlights)',
+    category: 'Social Media',
+    title: 'Jike (highlights)',
     logo: logos.jike,
     label: '即刻 精选',
     labelColor: '282c34',
@@ -75,7 +81,8 @@ export const sources: Record<
     link: (queryKey: string) => `https://m.okjike.com/users/${queryKey}`,
   },
   jikeLiked: {
-    title: 'Social Media - Jike (likes)',
+    category: 'Social Media',
+    title: 'Jike (likes)',
     logo: logos.jike,
     label: '即刻 获赞',
     labelColor: '282c34',
@@ -83,7 +90,8 @@ export const sources: Record<
     link: (queryKey: string) => `https://m.okjike.com/users/${queryKey}`,
   },
   bilibili: {
-    title: 'Social Media - Bilibili',
+    category: 'Social Media',
+    title: 'Bilibili',
     logo: logos.bilibili,
     label: 'bilibili fans',
     labelColor: 'FE7398',
@@ -91,7 +99,8 @@ export const sources: Record<
     link: (queryKey: string) => `https://space.bilibili.com/${queryKey}`,
   },
   coolapk: {
-    title: 'Social Media - Coolapk',
+    category: 'Social Media',
+    title: 'Coolapk',
     logo: logos.coolapk,
     label: '酷安 Coolapk',
     labelColor: '11ab60',
@@ -100,7 +109,8 @@ export const sources: Record<
     link: (queryKey: string) => `https://www.coolapk.com/u/${queryKey}`,
   },
   instagram: {
-    title: 'Social Media - Instagram',
+    category: 'Social Media',
+    title: 'Instagram',
     logo: 'instagram',
     logoColor: 'white',
     label: 'Instagram',
@@ -110,7 +120,8 @@ export const sources: Record<
     link: (queryKey: string) => `https://www.instagram.com/${queryKey}`,
   },
   telegram: {
-    title: 'Social Media - Telegram',
+    category: 'Social Media',
+    title: 'Telegram',
     logo: 'telegram',
     label: (queryKey: string) => `@${queryKey}`,
     labelColor: '282c34',
@@ -119,7 +130,8 @@ export const sources: Record<
     link: (queryKey: string) => `https://t.me/${queryKey}`,
   },
   twitter: {
-    title: 'Social Media - Twitter',
+    category: 'Social Media',
+    title: 'Twitter',
     logo: 'twitter',
     label: 'Twitter',
     labelColor: '282c34',
@@ -128,7 +140,8 @@ export const sources: Record<
     link: (queryKey: string) => `https://twitter.com/${queryKey}`,
   },
   weibo: {
-    title: 'Social Media - Weibo',
+    category: 'Social Media',
+    title: 'Weibo',
     logo: 'sina-weibo',
     label: '微博关注',
     labelColor: 'e71f19',
@@ -136,7 +149,8 @@ export const sources: Record<
     link: (queryKey: string) => `https://weibo.com/u/${queryKey}`,
   },
   github: {
-    title: 'Developers - GitHub',
+    category: 'Developers',
+    title: 'GitHub',
     logo: 'github',
     label: 'GitHub Followers',
     labelColor: '282c34',
@@ -144,7 +158,8 @@ export const sources: Record<
     link: (queryKey: string) => `https://github.com/${queryKey}`,
   },
   neteaseMusic: {
-    title: 'Music - Netease Music',
+    category: 'Music',
+    title: 'Netease Music',
     logo: logos.neteaseMusic,
     label: '网易云音乐粉丝',
     labelColor: 'e72d2c',
@@ -153,7 +168,8 @@ export const sources: Record<
       `https://music.163.com/#/user/home?id=${queryKey}`,
   },
   steamGames: {
-    title: 'Games - Steam (games)',
+    category: 'Games',
+    title: 'Steam (games)',
     logo: 'steam',
     label: 'Steam',
     labelColor: '134375',
@@ -163,7 +179,8 @@ export const sources: Record<
       `https://steamcommunity.com/profiles/${queryKey}/`,
   },
   steamFriends: {
-    title: 'Games - Steam (friends)',
+    category: 'Games',
+    title: 'Steam (friends)',
     logo: 'steam',
     label: 'Steam Friends',
     labelColor: '134375',
@@ -172,7 +189,8 @@ export const sources: Record<
       `https://steamcommunity.com/profiles/${queryKey}/`,
   },
   unsplash: {
-    title: 'Photography - Unsplash',
+    category: 'Photography',
+    title: 'Unsplash',
     logo: 'unsplash',
     label: 'Unsplash',
     labelColor: '000000',
@@ -181,7 +199,8 @@ export const sources: Record<
     link: (queryKey: string) => `https://unsplash.com/@${queryKey}`,
   },
   afdianFans: {
-    title: 'Websites - Aifadian (sponsors)',
+    category: 'Websites',
+    title: 'Aifadian (sponsors)',
     label: '爱发电',
     labelColor: '946ce6',
     suffix: ' 发电人次 / 月',
@@ -189,7 +208,8 @@ export const sources: Record<
     link: (queryKey: string) => `https://afdian.net/@${queryKey}`,
   },
   afdianIncome: {
-    title: 'Websites - Aifadian (income)',
+    category: 'Websites',
+    title: 'Aifadian (income)',
     label: '爱发电收入',
     labelColor: '946ce6',
     prefix: '￥ ',
@@ -198,7 +218,8 @@ export const sources: Record<
     link: (queryKey: string) => `https://afdian.net/@${queryKey}`,
   },
   medium: {
-    title: 'Websites - Medium',
+    category: 'Websites',
+    title: 'Medium',
     logo: 'medium',
     label: 'Medium',
     labelColor: '03a87c',
@@ -207,7 +228,8 @@ export const sources: Record<
     link: (queryKey: string) => `https://medium.com/${queryKey}`,
   },
   reddit: {
-    title: 'Websites - Reddit',
+    category: 'Websites',
+    title: 'Reddit',
     logo: 'reddit',
     logoColor: 'white',
     label: 'Reddit Karma',
@@ -216,7 +238,8 @@ export const sources: Record<
     link: (queryKey: string) => `https://www.reddit.com/user/${queryKey}`,
   },
   sspai: {
-    title: 'Websites - Shaoshupai',
+    category: 'Websites',
+    title: 'Shaoshupai',
     logo: logos.shaoshupai,
     label: '少数派关注',
     labelColor: '282c34',
@@ -224,7 +247,8 @@ export const sources: Record<
     link: (queryKey: string) => `https://sspai.com/u/${queryKey}`,
   },
   zhihu: {
-    title: 'Websites - Zhihu',
+    category: 'Websites',
+    title: 'Zhihu',
     label: '知乎关注',
     labelColor: '0084ff',
     color: '282c34',
@@ -270,7 +294,7 @@ export const badge = (source: Source, queryKey: string) => {
   const image = imageBase.toString()
 
   // `split` to drop category
-  const markdown = `[![${title.split(' - ')[1]}](${image})](${link(queryKey)})`
+  const markdown = `[![${title}](${image})](${link(queryKey)})`
 
   return { image, link, markdown }
 }
