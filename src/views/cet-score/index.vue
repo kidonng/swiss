@@ -39,6 +39,7 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted } from '@vue/composition-api'
 import ky from 'ky'
+import { getData, scoreData } from './utils'
 
 export default defineComponent({
   name: 'cet-score',
@@ -55,28 +56,7 @@ export default defineComponent({
         id.value
       }&${Math.random()}`)
 
-    onMounted(async () => {
-      const script = await ky(
-        'https://cors-anywhere.herokuapp.com/http://cet.neea.edu.cn/cet/js/data.js'
-      ).text()
-      const dq = JSON.parse(script.substring(7, script.length - 2))
-      examTable = [
-        ,
-        'CET4-D',
-        'CET6-D',
-        'CJT4-D',
-        'CJT6-D',
-        'PHS4-D',
-        'PHS6-D',
-        'CRT4-D',
-        'CRT6-D',
-        'TFU4-D',
-      ].map((i) => {
-        // @ts-ignore
-        const t = dq.rdsub.find((t) => t.code === i)
-        return t && t.tab
-      })
-    })
+    onMounted(async () => (examTable = await getData()))
 
     const query = async () => {
       const index = id.value.startsWith('F')
@@ -97,22 +77,22 @@ export default defineComponent({
       items.value = res.error
         ? [{ name: '验证码错误' }]
         : [
-            { name: `成绩报告单编号：${res.id}` },
+            { name: `${scoreData.id}：${res.id}` },
             {
               name: '笔试成绩',
               children: [
-                { name: `准考证号：${res.z}` },
-                { name: `总分：${res.s}` },
-                { name: `听力：${res.l}` },
-                { name: `阅读：${res.r}` },
-                { name: `写作和翻译：${res.w}` },
+                { name: `${scoreData.z.slice(2)}：${res.z}` },
+                { name: `${scoreData.s}：${res.s}` },
+                { name: `${scoreData.l}：${res.l}` },
+                { name: `${scoreData.r}：${res.r}` },
+                { name: `${scoreData.w}：${res.w}` },
               ],
             },
             {
               name: '口试成绩',
               children: [
-                { name: `准考证号：${res.kyz}` },
-                { name: `等级：${res.kys}` },
+                { name: `${scoreData.kyz.slice(2)}：${res.kyz}` },
+                { name: `${scoreData.kys.slice(2)}：${res.kys}` },
               ],
             },
           ]

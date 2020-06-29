@@ -28,7 +28,9 @@ export const routes: RouteConfig[] = [
     name: 'CET Score',
     path: '/cet-score',
     component: () =>
-      import(/* webpackChunkName: "cet-score" */ '../views/cet-score.vue'),
+      import(
+        /* webpackChunkName: "cet-score" */ '../views/cet-score/index.vue'
+      ),
     meta: {
       icon: 'counter',
     },
