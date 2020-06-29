@@ -17,7 +17,9 @@ export const routes: RouteConfig[] = [
     name: 'ID Number',
     path: '/id-number',
     component: () =>
-      import(/* webpackChunkName: "id-number" */ '../views/id-number.vue'),
+      import(
+        /* webpackChunkName: "id-number" */ '../views/id-number/index.vue'
+      ),
     meta: {
       icon: 'identifier',
     },

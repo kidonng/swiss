@@ -28,6 +28,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed } from '@vue/composition-api'
+import { IDVerification } from './utils'
 
 export default defineComponent({
   name: 'id-number',
@@ -46,17 +47,13 @@ export default defineComponent({
       Number(id.value[16]) === 1 ? 'male' : 'female'
     )
 
-    // https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%85%AC%E6%B0%91%E8%BA%AB%E4%BB%BD%E5%8F%B7%E7%A0%81
     const icon = computed(() => {
-      if (id.value.length === 17) {
-        const sum = [...id.value].reduce(
-          (sum, digit, index) => (sum += 2 ** (17 - index) * Number(digit)),
-          0
-        )
-        const code = 12 - (sum % 11)
+      const verification = IDVerification(id.value)
 
-        return code === 10 ? 'mdi-alpha-x' : `mdi-numeric-${code}`
-      }
+      if (verification)
+        return verification === 'x'
+          ? 'mdi-alpha-x'
+          : `mdi-numeric-${verification}`
 
       return 'mdi-alert-circle'
     })
