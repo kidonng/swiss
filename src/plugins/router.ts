@@ -72,7 +72,7 @@ export const routes: RouteConfig[] = [
     name: 'Progress',
     path: '/progress',
     component: () =>
-      import(/* webpackChunkName: "progress" */ '../views/progress.vue'),
+      import(/* webpackChunkName: "progress" */ '../views/progress/index.vue'),
     meta: {
       icon: 'progress-clock',
     },
