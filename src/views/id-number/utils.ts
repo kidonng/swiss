@@ -13,3 +13,15 @@ export function IDVerification(id: string, verification?: string) {
 
   return verification ? verification === code : code
 }
+
+export const IDInfo = (id: string) => ({
+  address: id.length >= 6 ? id.substring(0, 6) : null,
+  dob:
+    id.length >= 14
+      ? `${id.substring(6, 10)}-${id.substring(10, 12)}-${id.substring(12, 14)}`
+      : null,
+  order: id.length >= 17 ? id.substring(14, 17) : null,
+  gender:
+    id.length >= 17 ? (Number(id[16]) % 2 === 0 ? 'female' : 'male') : null,
+  verification: id.length >= 18 ? id[17] : IDVerification(id),
+})

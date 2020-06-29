@@ -8,47 +8,35 @@
         maxlength="17"
       />
     </v-row>
-    <v-row v-if="id.length >= 6">
+    <v-row v-if="info.address">
       <span class="font-weight-bold">地址码：</span>
-      <code>{{ address }}</code>
+      <code>{{ info.address }}</code>
     </v-row>
-    <v-row v-if="id.length >= 14">
+    <v-row v-if="info.dob">
       <span class="font-weight-bold">出生日期：</span>
       <code>
-        {{ dob }}
+        {{ info.dob }}
       </code>
     </v-row>
-    <v-row v-if="id.length === 17">
+    <v-row v-if="info.order">
       <span class="font-weight-bold">顺序码：</span>
-      <code>{{ order }}</code>
-      <v-icon class="ml-1"> mdi-gender-{{ gender }} </v-icon>
+      <code>{{ info.order }}</code>
+      <v-icon class="ml-1"> mdi-gender-{{ info.gender }} </v-icon>
     </v-row>
   </v-col>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, computed } from '@vue/composition-api'
-import { IDVerification } from './utils'
+import { IDInfo } from './utils'
 
 export default defineComponent({
   name: 'id-number',
   setup() {
     const id = ref('34052419800101001')
-    const address = computed(() => id.value.substring(0, 6))
-    const dob = computed(
-      () =>
-        `${id.value.substring(6, 10)}-${id.value.substring(
-          10,
-          12
-        )}-${id.value.substring(12, 14)}`
-    )
-    const order = computed(() => id.value.substring(14, 17))
-    const gender = computed(() =>
-      Number(id.value[16]) === 1 ? 'male' : 'female'
-    )
-
+    const info = computed(() => IDInfo(id.value))
     const icon = computed(() => {
-      const verification = IDVerification(id.value)
+      const { verification } = info.value
 
       if (verification)
         return verification === 'x'
@@ -58,7 +46,7 @@ export default defineComponent({
       return 'mdi-alert-circle'
     })
 
-    return { id, address, dob, order, gender, icon }
+    return { id, info, icon }
   },
 })
 </script>
