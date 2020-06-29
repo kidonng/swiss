@@ -45,11 +45,11 @@ export const routes: RouteConfig[] = [
     },
   },
   {
-    name: 'Substats Badge Maker',
-    path: '/substats-badge-maker',
+    name: 'Substats Badge Creator',
+    path: '/substats-badge-creator',
     component: () =>
       import(
-        /* webpackChunkName: "substats-badge-maker" */ '../views/substats-badge-maker/index.vue'
+        /* webpackChunkName: "substats-badge-cretor" */ '../views/substats-badge-creator/index.vue'
       ),
     meta: {
       icon: 'shield-star',
@@ -92,6 +92,10 @@ export const routes: RouteConfig[] = [
     meta: {
       icon: 'help-circle',
     },
+  },
+  {
+    path: '*',
+    redirect: '/',
   },
 ]
 

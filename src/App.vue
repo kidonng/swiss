@@ -66,7 +66,8 @@ export default defineComponent({
     const drawer = ref(false)
     const { toggleDarkTheme } = darkTheme(theme)
 
-    return { drawer, routes, toggleDarkTheme }
+    // `slice` to drop fallback route
+    return { drawer, routes: routes.slice(0, -1), toggleDarkTheme }
   },
 })
 </script>
