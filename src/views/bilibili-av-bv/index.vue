@@ -15,21 +15,18 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed } from '@vue/composition-api'
-import { AVtoBV, BVtoAV } from './utils'
+import { reg, AVtoBV, BVtoAV } from './utils'
 
 export default defineComponent({
   name: 'bilibili-av-bv',
   setup() {
-    const reg = /^((av)?(\d+)|BV(((?=[^0IOl])\w){10}))$/
-
     const origin = ref('')
     const valid = computed(() => reg.test(origin.value))
     const converted = computed(() => {
-      if (valid.value) {
-        const [, , , AV, BV] = origin.value.match(reg)!
+      const { value } = origin
 
-        return AV ? AVtoBV(AV) : BVtoAV(BV)
-      }
+      if (valid.value)
+        return value.startsWith('BV') ? BVtoAV(value) : AVtoBV(value)
     })
 
     return { origin, converted, valid }
