@@ -16,22 +16,20 @@ export const logos = {
 }
 
 // https://substats.spencerwoo.com/api.html
-export const sources = (
-  queryKey: string
-): Record<
+export const sources: Record<
   string,
   {
     title: string
     logo?: string
     logoColor?: string
-    label: string | (() => string)
+    label: string | ((queryKey: string) => string)
     labelColor: string
     prefix?: string
     suffix?: string
     color: string
-    link: () => string
+    link: (queryKey: string) => string
   }
-> => ({
+> = {
   feedly: {
     title: 'RSS - Feedly',
     logo: 'feedly',
@@ -40,7 +38,7 @@ export const sources = (
     labelColor: '2bb24c',
     suffix: ' subscribers',
     color: '282c34',
-    link: () => queryKey,
+    link: (queryKey: string) => queryKey,
   },
   inoreader: {
     title: 'RSS - Inoreader',
@@ -49,7 +47,7 @@ export const sources = (
     labelColor: '007bc7',
     suffix: ' subscribers',
     color: '282c34',
-    link: () => queryKey,
+    link: (queryKey: string) => queryKey,
   },
   newsblur: {
     title: 'RSS - NewsBlur',
@@ -58,7 +56,7 @@ export const sources = (
     labelColor: '282c34',
     suffix: ' subscribers',
     color: 'de922e',
-    link: () => queryKey,
+    link: (queryKey: string) => queryKey,
   },
   jikeFollower: {
     title: 'Social Media - Jike (followers)',
@@ -66,7 +64,7 @@ export const sources = (
     label: '即刻 被关注',
     labelColor: '282c34',
     color: 'f7cf07',
-    link: () => `https://m.okjike.com/users/${queryKey}`,
+    link: (queryKey: string) => `https://m.okjike.com/users/${queryKey}`,
   },
   jikeHighlights: {
     title: 'Social Media - Jike (highlights)',
@@ -74,7 +72,7 @@ export const sources = (
     label: '即刻 精选',
     labelColor: '282c34',
     color: 'f7cf07',
-    link: () => `https://m.okjike.com/users/${queryKey}`,
+    link: (queryKey: string) => `https://m.okjike.com/users/${queryKey}`,
   },
   jikeLiked: {
     title: 'Social Media - Jike (likes)',
@@ -82,7 +80,7 @@ export const sources = (
     label: '即刻 获赞',
     labelColor: '282c34',
     color: 'f7cf07',
-    link: () => `https://m.okjike.com/users/${queryKey}`,
+    link: (queryKey: string) => `https://m.okjike.com/users/${queryKey}`,
   },
   bilibili: {
     title: 'Social Media - Bilibili',
@@ -90,7 +88,7 @@ export const sources = (
     label: 'bilibili fans',
     labelColor: 'FE7398',
     color: '282c34',
-    link: () => `https://space.bilibili.com/${queryKey}`,
+    link: (queryKey: string) => `https://space.bilibili.com/${queryKey}`,
   },
   coolapk: {
     title: 'Social Media - Coolapk',
@@ -99,7 +97,7 @@ export const sources = (
     labelColor: '11ab60',
     suffix: ' fans',
     color: '282c34',
-    link: () => `https://www.coolapk.com/u/${queryKey}`,
+    link: (queryKey: string) => `https://www.coolapk.com/u/${queryKey}`,
   },
   instagram: {
     title: 'Social Media - Instagram',
@@ -109,16 +107,16 @@ export const sources = (
     labelColor: 'd7417b',
     suffix: ' followers',
     color: '282c34',
-    link: () => `https://www.instagram.com/${queryKey}`,
+    link: (queryKey: string) => `https://www.instagram.com/${queryKey}`,
   },
   telegram: {
     title: 'Social Media - Telegram',
     logo: 'telegram',
-    label: () => `@${queryKey}`,
+    label: (queryKey: string) => `@${queryKey}`,
     labelColor: '282c34',
     suffix: ' members',
     color: '2CA5E0',
-    link: () => `https://t.me/${queryKey}`,
+    link: (queryKey: string) => `https://t.me/${queryKey}`,
   },
   twitter: {
     title: 'Social Media - Twitter',
@@ -127,7 +125,7 @@ export const sources = (
     labelColor: '282c34',
     suffix: ' followers',
     color: '1da1f2',
-    link: () => `https://twitter.com/${queryKey}`,
+    link: (queryKey: string) => `https://twitter.com/${queryKey}`,
   },
   weibo: {
     title: 'Social Media - Weibo',
@@ -135,7 +133,7 @@ export const sources = (
     label: '微博关注',
     labelColor: 'e71f19',
     color: '040000',
-    link: () => `https://weibo.com/u/${queryKey}`,
+    link: (queryKey: string) => `https://weibo.com/u/${queryKey}`,
   },
   github: {
     title: 'Developers - GitHub',
@@ -143,7 +141,7 @@ export const sources = (
     label: 'GitHub Followers',
     labelColor: '282c34',
     color: '181717',
-    link: () => `https://github.com/${queryKey}`,
+    link: (queryKey: string) => `https://github.com/${queryKey}`,
   },
   neteaseMusic: {
     title: 'Music - Netease Music',
@@ -151,7 +149,8 @@ export const sources = (
     label: '网易云音乐粉丝',
     labelColor: 'e72d2c',
     color: '282c34',
-    link: () => `https://music.163.com/#/user/home?id=${queryKey}`,
+    link: (queryKey: string) =>
+      `https://music.163.com/#/user/home?id=${queryKey}`,
   },
   steamGames: {
     title: 'Games - Steam (games)',
@@ -160,7 +159,8 @@ export const sources = (
     labelColor: '134375',
     suffix: ' Games',
     color: '0b1a37',
-    link: () => `https://steamcommunity.com/profiles/${queryKey}/`,
+    link: (queryKey: string) =>
+      `https://steamcommunity.com/profiles/${queryKey}/`,
   },
   steamFriends: {
     title: 'Games - Steam (friends)',
@@ -168,7 +168,8 @@ export const sources = (
     label: 'Steam Friends',
     labelColor: '134375',
     color: '0b1a37',
-    link: () => `https://steamcommunity.com/profiles/${queryKey}/`,
+    link: (queryKey: string) =>
+      `https://steamcommunity.com/profiles/${queryKey}/`,
   },
   unsplash: {
     title: 'Photography - Unsplash',
@@ -177,7 +178,7 @@ export const sources = (
     labelColor: '000000',
     suffix: ' followers',
     color: '282c34',
-    link: () => `https://unsplash.com/@${queryKey}`,
+    link: (queryKey: string) => `https://unsplash.com/@${queryKey}`,
   },
   afdianFans: {
     title: 'Websites - Aifadian (sponsors)',
@@ -185,7 +186,7 @@ export const sources = (
     labelColor: '946ce6',
     suffix: ' 发电人次 / 月',
     color: '282c34',
-    link: () => `https://afdian.net/@${queryKey}`,
+    link: (queryKey: string) => `https://afdian.net/@${queryKey}`,
   },
   afdianIncome: {
     title: 'Websites - Aifadian (income)',
@@ -194,7 +195,7 @@ export const sources = (
     prefix: '￥ ',
     suffix: ' 每月',
     color: '282c34',
-    link: () => `https://afdian.net/@${queryKey}`,
+    link: (queryKey: string) => `https://afdian.net/@${queryKey}`,
   },
   medium: {
     title: 'Websites - Medium',
@@ -203,7 +204,7 @@ export const sources = (
     labelColor: '03a87c',
     suffix: ' followers',
     color: '12100E',
-    link: () => `https://medium.com/${queryKey}`,
+    link: (queryKey: string) => `https://medium.com/${queryKey}`,
   },
   reddit: {
     title: 'Websites - Reddit',
@@ -212,7 +213,7 @@ export const sources = (
     label: 'Reddit Karma',
     labelColor: 'FF4500',
     color: '282c34',
-    link: () => `https://www.reddit.com/user/${queryKey}`,
+    link: (queryKey: string) => `https://www.reddit.com/user/${queryKey}`,
   },
   sspai: {
     title: 'Websites - Shaoshupai',
@@ -220,26 +221,20 @@ export const sources = (
     label: '少数派关注',
     labelColor: '282c34',
     color: 'd71a1b',
-    link: () => `https://sspai.com/u/${queryKey}`,
+    link: (queryKey: string) => `https://sspai.com/u/${queryKey}`,
   },
   zhihu: {
     title: 'Websites - Zhihu',
     label: '知乎关注',
     labelColor: '0084ff',
     color: '282c34',
-    link: () => `https://www.zhihu.com/people/${queryKey}`,
+    link: (queryKey: string) => `https://www.zhihu.com/people/${queryKey}`,
   },
-})
+}
 
-export type Source = keyof ReturnType<typeof sources>
+export type Source = keyof typeof sources
 
-export const badge = ({
-  source,
-  queryKey,
-}: {
-  source: Source
-  queryKey: string
-}) => {
+export const badge = (source: Source, queryKey: string) => {
   const {
     title,
     logo,
@@ -250,7 +245,7 @@ export const badge = ({
     suffix,
     color,
     link,
-  } = sources(queryKey)[source]
+  } = sources[source]
 
   const apiBase = new URL('https://api.spencerwoo.com/substats/')
   apiBase.search = new URLSearchParams({
@@ -263,7 +258,7 @@ export const badge = ({
   imageBase.search = new URLSearchParams({
     ...(logo ? { logo } : {}),
     ...(logoColor ? { logoColor } : {}),
-    label: typeof label === 'function' ? label() : label,
+    label: typeof label === 'function' ? label(queryKey) : label,
     labelColor,
     ...(prefix ? { prefix } : {}),
     ...(suffix ? { suffix } : {}),
@@ -274,7 +269,8 @@ export const badge = ({
   }).toString()
   const image = imageBase.toString()
 
-  const markdown = `[![${title}](${image})](${link()})`
+  // `split` to drop category
+  const markdown = `[![${title.split(' - ')[1]}](${image})](${link(queryKey)})`
 
   return { image, link, markdown }
 }

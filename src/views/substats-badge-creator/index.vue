@@ -18,7 +18,7 @@
     <template v-if="result">
       <v-row class="flex-column">
         <div class="text-caption text--secondary mb-2">Badge</div>
-        <a class="mx-auto" :href="result.link()">
+        <a class="mx-auto" :href="result.link(queryKey)">
           <v-img :src="result.image" alt="Badge" />
         </a>
       </v-row>
@@ -62,15 +62,15 @@ import { sources, badge, Source } from './utils'
 export default defineComponent({
   name: 'substats-badge-creator',
   setup() {
-    const items = Object.entries(
-      sources('')
-    ).map(([value, { title: text }]) => ({ text, value }))
+    const items = Object.entries(sources).map(([value, { title: text }]) => ({
+      text,
+      value,
+    }))
     const source = ref<Source>('github')
     const queryKey = ref('spencerwooo')
     const result = ref()
 
-    const create = () =>
-      (result.value = badge({ source: source.value, queryKey: queryKey.value }))
+    const create = () => (result.value = badge(source.value, queryKey.value))
 
     return { items, source, queryKey, result, create, copy }
   },
