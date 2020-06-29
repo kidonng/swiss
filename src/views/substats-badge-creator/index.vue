@@ -12,36 +12,19 @@
     <v-row>
       <v-text-field label="Query Key" v-model="queryKey" />
     </v-row>
-    <v-row class="mb-4" justify="center">
-      <v-btn class="primary" @click="create">Create</v-btn>
-    </v-row>
     <template v-if="result">
       <v-row class="flex-column">
         <div class="text-caption text--secondary mb-2">Badge</div>
-        <a class="mx-auto" :href="result.link(queryKey)">
+        <a class="mx-auto mb-2" :href="result.link">
           <v-img :src="result.image" alt="Badge" />
         </a>
       </v-row>
-      <v-row>
-        <v-text-field label="Image" v-model="result.image" readonly>
+      <v-row v-for="(value, label) in result.items">
+        <v-text-field :label="label" :value="value" readonly>
           <template #append-outer>
             <v-tooltip bottom>
               <template #activator="{ on, attrs }">
-                <v-icon @click="copy(result.image)" v-bind="attrs" v-on="on">
-                  mdi-content-copy
-                </v-icon>
-              </template>
-              <span>Copy</span>
-            </v-tooltip>
-          </template>
-        </v-text-field>
-      </v-row>
-      <v-row>
-        <v-text-field label="Markdown" v-model="result.markdown" readonly>
-          <template #append-outer>
-            <v-tooltip bottom>
-              <template #activator="{ on, attrs }">
-                <v-icon @click="copy(result.markdown)" v-bind="attrs" v-on="on">
+                <v-icon @click="copy(value)" v-bind="attrs" v-on="on">
                   mdi-content-copy
                 </v-icon>
               </template>
@@ -51,12 +34,15 @@
         </v-text-field>
       </v-row>
     </template>
+    <v-snackbar v-model="snackbar" timeout="2000">
+      <v-icon color="success">mdi-check</v-icon> Copied!
+    </v-snackbar>
   </v-col>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
-import copy from 'copy-text-to-clipboard'
+import { defineComponent, ref, computed } from '@vue/composition-api'
+import _copy from 'copy-text-to-clipboard'
 import { sources, badge, Source } from './utils'
 
 export default defineComponent({
@@ -70,11 +56,26 @@ export default defineComponent({
     )
     const source = ref<Source>('github')
     const queryKey = ref('spencerwooo')
-    const result = ref()
+    const result = computed(() => {
+      const _badge = badge(source.value, queryKey.value)
 
-    const create = () => (result.value = badge(source.value, queryKey.value))
+      return {
+        ..._badge,
+        items: {
+          Image: _badge.image,
+          Markdown: _badge.markdown,
+          API: _badge.api,
+        },
+      }
+    })
+    const snackbar = ref(false)
 
-    return { items, source, queryKey, result, create, copy }
+    const copy = (content: string) => {
+      _copy(content)
+      snackbar.value = true
+    }
+
+    return { items, source, queryKey, result, copy, snackbar }
   },
 })
 </script>

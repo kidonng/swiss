@@ -268,7 +268,7 @@ export const badge = (source: Source, queryKey: string) => {
     prefix,
     suffix,
     color,
-    link,
+    link: _link,
   } = sources[source]
 
   const apiBase = new URL('https://api.spencerwoo.com/substats/')
@@ -293,8 +293,8 @@ export const badge = (source: Source, queryKey: string) => {
   }).toString()
   const image = imageBase.toString()
 
-  // `split` to drop category
-  const markdown = `[![${title}](${image})](${link(queryKey)})`
+  const link = _link(queryKey)
+  const markdown = `[![${title}](${image})](${link})`
 
-  return { image, link, markdown }
+  return { api, image, markdown, link }
 }
