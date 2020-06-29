@@ -60,7 +60,7 @@ export const routes: RouteConfig[] = [
     path: '/miui-dev-link',
     component: () =>
       import(
-        /* webpackChunkName: "miui-dev-link" */ '../views/miui-dev-link.vue'
+        /* webpackChunkName: "miui-dev-link" */ '../views/miui-dev-link/index.vue'
       ),
     meta: {
       icon: 'link',
