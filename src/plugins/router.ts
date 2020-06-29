@@ -14,17 +14,6 @@ export const routes: RouteConfig[] = [
     },
   },
   {
-    name: 'ID Number',
-    path: '/id-number',
-    component: () =>
-      import(
-        /* webpackChunkName: "id-number" */ '../views/id-number/index.vue'
-      ),
-    meta: {
-      icon: 'identifier',
-    },
-  },
-  {
     name: 'Bilibili AV BV',
     path: '/bilibili-av-bv',
     component: () =>
@@ -36,25 +25,23 @@ export const routes: RouteConfig[] = [
     },
   },
   {
-    name: 'MIUI Dev Link',
-    path: '/miui-dev-link',
+    name: 'CET Score',
+    path: '/cet-score',
     component: () =>
-      import(
-        /* webpackChunkName: "miui-dev-link" */ '../views/miui-dev-link.vue'
-      ),
+      import(/* webpackChunkName: "cet-score" */ '../views/cet-score.vue'),
     meta: {
-      icon: 'link',
+      icon: 'counter',
     },
   },
   {
-    name: 'Substats Badge Creator',
-    path: '/substats-badge-creator',
+    name: 'ID Number',
+    path: '/id-number',
     component: () =>
       import(
-        /* webpackChunkName: "substats-badge-cretor" */ '../views/substats-badge-creator/index.vue'
+        /* webpackChunkName: "id-number" */ '../views/id-number/index.vue'
       ),
     meta: {
-      icon: 'shield-star',
+      icon: 'identifier',
     },
   },
   {
@@ -69,6 +56,17 @@ export const routes: RouteConfig[] = [
     },
   },
   {
+    name: 'MIUI Dev Link',
+    path: '/miui-dev-link',
+    component: () =>
+      import(
+        /* webpackChunkName: "miui-dev-link" */ '../views/miui-dev-link.vue'
+      ),
+    meta: {
+      icon: 'link',
+    },
+  },
+  {
     name: 'Progress',
     path: '/progress',
     component: () =>
@@ -78,12 +76,14 @@ export const routes: RouteConfig[] = [
     },
   },
   {
-    name: 'CET Score',
-    path: '/cet-score',
+    name: 'Substats Badge Creator',
+    path: '/substats-badge-creator',
     component: () =>
-      import(/* webpackChunkName: "cet-score" */ '../views/cet-score.vue'),
+      import(
+        /* webpackChunkName: "substats-badge-cretor" */ '../views/substats-badge-creator/index.vue'
+      ),
     meta: {
-      icon: 'counter',
+      icon: 'shield-star',
     },
   },
   {

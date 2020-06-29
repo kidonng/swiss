@@ -10,7 +10,7 @@
             <v-icon>mdi-theme-light-dark</v-icon>
           </v-btn>
         </template>
-        <span>Toggle Dark Theme</span>
+        <span>Toggle Theme</span>
       </v-tooltip>
       <v-tooltip bottom>
         <template #activator="{ on, attrs }">
