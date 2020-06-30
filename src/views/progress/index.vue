@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
+import { defineComponent, ref, onUnmounted } from '@vue/composition-api'
 import { moments } from './utils'
 
 export default defineComponent({
@@ -25,7 +25,9 @@ export default defineComponent({
     }
     const _moments = ref(getMoments())
 
-    setInterval(() => (_moments.value = getMoments()), 1000)
+    const interval = setInterval(() => (_moments.value = getMoments()), 1000)
+
+    onUnmounted(() => clearInterval(interval))
 
     return { _moments }
   },

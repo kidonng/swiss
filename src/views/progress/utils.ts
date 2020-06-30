@@ -25,7 +25,7 @@ export const moments = () => {
   const hour = (now.minute() + minute) / 60
   const day = (now.hour() + hour) / 24
   const week = (now.isoWeekday() - 1 + day) / 7
-  const month = (now.date() + day) / days[now.month()]
+  const month = (now.date() - 1 + day) / days[now.month()]
   const year = (now.month() + month) / 12
 
   return { now, days, minute, hour, day, week, month, year }
