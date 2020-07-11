@@ -6,6 +6,7 @@
       justify="center"
       align="center"
       :style="{ width: `${value * 100}%` }"
+      :key="unit"
     >
       {{ Math.round(value * 100) }}%
     </v-row>
