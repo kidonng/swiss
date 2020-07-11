@@ -28,7 +28,7 @@
         <strong>Update date</strong>: {{ format(info.LastUpdateDateUtc) }}
       </v-row>
       <v-row><strong>Description</strong>:</v-row>
-      <v-row v-html="info.Description.replace(/(\r\n)/g, '<br>')" />
+      <v-row v-html="info.Description.replaceAll('\r\n', '<br>')" />
     </template>
   </v-col>
 </template>

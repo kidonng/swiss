@@ -19,7 +19,7 @@
           <v-img :src="result.image" alt="Badge" />
         </a>
       </v-row>
-      <v-row v-for="(value, label) in result.items">
+      <v-row v-for="(value, label) in result.items" :key="label">
         <v-text-field :label="label" :value="value" readonly>
           <template #append-outer>
             <v-tooltip bottom>
