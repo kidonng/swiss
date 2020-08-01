@@ -1,5 +1,8 @@
 <template>
   <v-col cols="10" lg="6">
+    <v-row class="text-h4 mb-4" justify="center">
+      Progress
+    </v-row>
     <v-row
       v-for="(value, unit) in _moments"
       :class="['unit', unit !== 'hour' && 'white--text', unit]"

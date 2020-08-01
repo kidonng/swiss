@@ -1,5 +1,8 @@
 <template>
   <v-col cols="10" lg="8">
+    <v-row class="text-h4 mb-4" justify="center">
+      Microsoft Store Info
+    </v-row>
     <v-row>
       <v-text-field label="productId" v-model="productId" />
     </v-row>

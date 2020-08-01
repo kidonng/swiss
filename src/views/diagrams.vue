@@ -1,5 +1,16 @@
 <template>
   <v-col cols="10" lg="4">
+    <v-row class="text-h4 mb-4" justify="center">
+      Diagrams
+    </v-row>
+    <v-row class="text-h6">
+      What is this
+    </v-row>
+    <v-row>
+      Notion doesn't support embedding links containing hash (which will get
+      stripped), this tool convert diagrams.net link into embeddable link which
+      Notion supports.
+    </v-row>
     <v-row>
       <v-text-field label="diagrams.net link" v-model="url" />
     </v-row>

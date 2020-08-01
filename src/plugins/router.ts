@@ -14,22 +14,22 @@ export const routes: RouteConfig[] = [
     },
   },
   {
-    name: 'Bilibili AV BV',
-    path: '/bilibili-av-bv',
+    name: 'Bilibili AV/BV ID Converter',
+    path: '/av-bv-converter',
     component: () =>
       import(
-        /* webpackChunkName: "bilibili-av-bv" */ '../views/bilibili-av-bv/index.vue'
+        /* webpackChunkName: "av-bv-converter" */ '../views/av-bv-converter/index.vue'
       ),
     meta: {
       icon: 'swap-horizontal',
     },
   },
   {
-    name: 'CET Score',
-    path: '/cet-score',
+    name: 'CET Score Query',
+    path: '/cet-score-query',
     component: () =>
       import(
-        /* webpackChunkName: "cet-score" */ '../views/cet-score/index.vue'
+        /* webpackChunkName: "cet-score-query" */ '../views/cet-score-query/index.vue'
       ),
     meta: {
       icon: 'counter',

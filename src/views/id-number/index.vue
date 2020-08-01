@@ -1,5 +1,8 @@
 <template>
   <v-col cols="10" lg="4">
+    <v-row class="text-h4 mb-4" justify="center">
+      ID Number
+    </v-row>
     <v-row>
       <v-text-field
         label="身份证号前 17 位"

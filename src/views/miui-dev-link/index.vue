@@ -1,5 +1,8 @@
 <template>
   <v-col cols="10" lg="4">
+    <v-row class="text-h4 mb-4" justify="center">
+      MIUI Dev Link
+    </v-row>
     <v-row>
       <v-text-field label="Hash" v-model="hash" />
     </v-row>

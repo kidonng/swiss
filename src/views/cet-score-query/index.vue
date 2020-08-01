@@ -1,5 +1,8 @@
 <template>
   <v-col cols="10" lg="4">
+    <v-row class="text-h4 mb-4" justify="center">
+      CET Score Query
+    </v-row>
     <v-row>
       <v-text-field label="姓名" v-model="name" />
     </v-row>
@@ -42,7 +45,7 @@ import ky from 'ky'
 import { getData, scoreData } from './utils'
 
 export default defineComponent({
-  name: 'cet-score',
+  name: 'cet-score-query',
   setup() {
     const name = ref('')
     const id = ref('')
