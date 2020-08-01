@@ -36,6 +36,15 @@ export const routes: RouteConfig[] = [
     },
   },
   {
+    name: 'Diagrams',
+    path: '/diagrams',
+    component: () =>
+      import(/* webpackChunkName: "diagrams" */ '../views/diagrams.vue'),
+    meta: {
+      icon: 'graph',
+    },
+  },
+  {
     name: 'ID Number',
     path: '/id-number',
     component: () =>
@@ -82,7 +91,7 @@ export const routes: RouteConfig[] = [
     path: '/substats-badge-creator',
     component: () =>
       import(
-        /* webpackChunkName: "substats-badge-cretor" */ '../views/substats-badge-creator/index.vue'
+        /* webpackChunkName: "substats-badge-creator" */ '../views/substats-badge-creator/index.vue'
       ),
     meta: {
       icon: 'shield-star',
