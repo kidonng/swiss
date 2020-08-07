@@ -6,30 +6,30 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@vue/composition-api": "^0.6.1",
+    "@vue/composition-api": "^1.0.0-beta.7",
     "copy-text-to-clipboard": "^2.2.0",
-    "dayjs": "^1.8.28",
-    "got": "^11.3.0",
-    "ky": "^0.20.0",
-    "lodash": "^4.17.15",
+    "dayjs": "^1.8.32",
+    "got": "^11.5.1",
+    "ky": "^0.23.0",
+    "lodash": "^4.17.19",
     "vue": "^2.6.11",
-    "vue-router": "^3.3.4",
+    "vue-router": "^3.4.1",
     "vue-router-ga-lite": "0.2.0",
-    "vuetify": "^2.3.0"
+    "vuetify": "^2.3.8"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.155",
-    "@vercel/node": "^1.7.1",
-    "@vue/cli-plugin-router": "~4.4.0",
-    "@vue/cli-plugin-typescript": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
+    "@types/lodash": "^4.14.159",
+    "@vercel/node": "^1.7.4",
+    "@vue/cli-plugin-router": "~4.4.6",
+    "@vue/cli-plugin-typescript": "~4.4.6",
+    "@vue/cli-service": "~4.4.6",
     "prettier": "^2.0.5",
-    "sass": "^1.19.0",
-    "sass-loader": "^8.0.0",
-    "typescript": "~3.9.3",
-    "vue-cli-plugin-vuetify": "^2.0.5",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.3",
+    "typescript": "~3.9.7",
+    "vue-cli-plugin-vuetify": "^2.0.7",
     "vue-template-compiler": "^2.6.11",
-    "vuetify-loader": "^1.5.0"
+    "vuetify-loader": "^1.6.0"
   },
   "browserslist": [
     "> 1%",
