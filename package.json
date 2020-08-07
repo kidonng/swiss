@@ -39,5 +39,14 @@
   "prettier": {
     "semi": false,
     "singleQuote": true
+  },
+  "renovate": {
+    "extends": [
+      "config:base",
+      ":preserveSemverRanges"
+    ],
+    "ignoreDeps": [
+      "vue-router-ga-lite"
+    ]
   }
 }
