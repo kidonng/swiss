@@ -45,6 +45,17 @@ export const routes: RouteConfig[] = [
     },
   },
   {
+    name: 'DLC Explorer',
+    path: '/dlc-explorer',
+    component: () =>
+      import(
+        /* webpackChunkName: "dlc-explorer" */ '../views/dlc-explorer.vue'
+      ),
+    meta: {
+      icon: 'web',
+    },
+  },
+  {
     name: 'ID Number',
     path: '/id-number',
     component: () =>
