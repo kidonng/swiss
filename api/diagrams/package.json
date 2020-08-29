@@ -1,0 +1,7 @@
+{
+  "name": "diagrams",
+  "private": true,
+  "devDependencies": {
+    "@vercel/node": "^1.8.1"
+  }
+}

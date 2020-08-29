@@ -9,7 +9,6 @@
     "@vue/composition-api": "^1.0.0-beta.7",
     "copy-text-to-clipboard": "^2.2.0",
     "dayjs": "^1.8.32",
-    "got": "^11.5.1",
     "ky": "^0.23.0",
     "lodash": "^4.17.19",
     "protobufjs": "^6.10.1",
@@ -20,7 +19,6 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.159",
-    "@vercel/node": "^1.7.4",
     "@vue/cli-plugin-router": "~4.4.6",
     "@vue/cli-plugin-typescript": "~4.4.6",
     "@vue/cli-service": "~4.4.6",
@@ -32,6 +30,9 @@
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.6.0"
   },
+  "workspaces": [
+    "api/*"
+  ],
   "browserslist": [
     "> 1%",
     "last 2 versions",

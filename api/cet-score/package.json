@@ -1,0 +1,10 @@
+{
+  "name": "cet-score",
+  "private": true,
+  "dependencies": {
+    "got": "^11.5.2"
+  },
+  "devDependencies": {
+    "@vercel/node": "^1.8.1"
+  }
+}

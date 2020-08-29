@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-/dist
+dist
 .vercel
 
 # local env files
@@ -21,3 +21,11 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Yarn
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
