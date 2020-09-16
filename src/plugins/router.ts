@@ -109,6 +109,17 @@ export const routes: RouteConfig[] = [
     },
   },
   {
+    name: 'Telegram Webhook Helper',
+    path: '/telegram-webhook-helper',
+    component: () =>
+      import(
+        /* webpackChunkName: "telegram-webhook-helper" */ '../views/telegram-webhook-helper.vue'
+      ),
+    meta: {
+      icon: 'telegram',
+    },
+  },
+  {
     name: 'xkcd why',
     path: '/xkcd-why',
     component: () =>

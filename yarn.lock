@@ -9009,6 +9009,7 @@ fsevents@~2.1.2:
     protobufjs: ^6.10.1
     sass: ^1.26.10
     sass-loader: ^10.0.2
+    telegram-typings: ^4.0.0-beta
     typescript: ^4.0.2
     vue: ^2.6.12
     vue-cli-plugin-vuetify: ^2.0.7
@@ -9038,6 +9039,13 @@ fsevents@~2.1.2:
     mkdirp: ^1.0.3
     yallist: ^4.0.0
   checksum: 7ae26210927bdf590686db21e66d5579020ccbebda93a1adffe266eb88ca8b152c56dd8ce0df87d81e3dbe709bfe8562b29c584871ba015ec868dec9062e91ea
+  languageName: node
+  linkType: hard
+
+"telegram-typings@npm:^4.0.0-beta":
+  version: 4.0.0-beta
+  resolution: "telegram-typings@npm:4.0.0-beta"
+  checksum: f6f9163cdc3148ead7e4f6b46e23e02a2dbfb0b8529971bba13ba0bf66ba0615a2bcca3142ad78ad786124d6839323a8f91ae4ada93a77e8370a76cefeb3c1c7
   languageName: node
   linkType: hard
 
