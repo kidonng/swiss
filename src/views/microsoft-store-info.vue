@@ -1,7 +1,10 @@
 <template>
   <v-col cols="10" lg="8">
     <v-row class="text-h4 mb-4" justify="center">
-      Microsoft Store Info
+      <span>
+        <a href="https://www.microsoft.com/store">Microsoft Store</a>
+        Info
+      </span>
     </v-row>
     <v-row>
       <v-text-field label="productId" v-model="productId" />
@@ -13,7 +16,7 @@
       <v-text-field label="locale" v-model="locale" />
     </v-row>
     <v-row class="mb-4" justify="center">
-      <v-btn class="primary" @click="get">Get</v-btn>
+      <v-btn class="primary" @click="get" :loading="loading">Get</v-btn>
     </v-row>
     <template v-if="info">
       <v-row>
@@ -53,8 +56,11 @@ export default defineComponent({
       () =>
         `https://www.microsoft.com/${locale.value}/p/${info.value.Title}/${productId.value}`
     )
+    const loading = ref(false)
 
     const get = async () => {
+      loading.value = true
+
       // https://gitlab.com/subversion/wpsnitch
       const res = await ky(
         'https://cors-anywhere.herokuapp.com/https://storeedgefd.dsx.mp.microsoft.com/v8.0/pages/pdp',
@@ -69,11 +75,12 @@ export default defineComponent({
       ).json<any[]>()
 
       info.value = last(res).Payload
+      loading.value = false
     }
 
     const format = (utc: ConfigType) => dayjs(utc).format('YYYY-MM-DD')
 
-    return { productId, market, locale, info, store, format, get }
+    return { productId, market, locale, info, store, format, loading, get }
   },
 })
 </script>

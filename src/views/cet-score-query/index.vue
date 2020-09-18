@@ -1,7 +1,7 @@
 <template>
   <v-col cols="10" lg="4">
     <v-row class="text-h4 mb-4" justify="center">
-      CET Score Query
+      <span><a href="http://cet.neea.edu.cn/">CET</a> Score Query</span>
     </v-row>
     <v-row>
       <v-text-field label="姓名" v-model="name" />

@@ -11,7 +11,9 @@
       </template>
     </v-row>
     <v-row justify="center" class="mt-4">
-      <v-btn class="primary" @click="() => getQuestion()">why</v-btn>
+      <v-btn class="primary" @click="() => getQuestion()" :disabled="loading">
+        Why
+      </v-btn>
     </v-row>
   </v-col>
 </template>
@@ -24,7 +26,7 @@ export default defineComponent({
   name: 'xkcd-why',
   setup() {
     const _question = ref('')
-    const loading = ref(true)
+    const loading = ref(false)
 
     const getQuestion = async (_number?: string) => {
       loading.value = true

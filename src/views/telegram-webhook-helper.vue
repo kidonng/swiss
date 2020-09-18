@@ -1,17 +1,26 @@
 <template>
   <v-col cols="10" lg="8">
     <v-row class="text-h4 mb-4" justify="center">
-      Telegram Webhook Helper
+      <span>
+        <a href="https://core.telegram.org/bots/webhooks">Telegram Webhook</a>
+        Helper
+      </span>
     </v-row>
     <v-row>
       <v-text-field label="Bot Token" v-model="token" clearable />
     </v-row>
-    <v-row class="mb-4" justify="space-around">
-      <v-btn @click="getWebhookInfo" :disabled="!token" :loading="loading"
-        >ℹ️ Info</v-btn
+    <v-row justify="space-around">
+      <v-btn
+        @click="getWebhookInfo"
+        class="my-2"
+        :disabled="!token"
+        :loading="loading"
       >
+        ℹ️ Info
+      </v-btn>
       <v-btn
         @click="setWebhook"
+        class="my-2"
         color="primary"
         :disabled="!token || !url"
         :loading="loading"
@@ -20,6 +29,7 @@
       </v-btn>
       <v-btn
         @click="deleteWebhook"
+        class="my-2"
         color="warning"
         :disabled="!token"
         :loading="loading"
@@ -28,6 +38,7 @@
       </v-btn>
       <v-btn
         @click="clearPendingUpdates"
+        class="my-2"
         color="warning"
         :disabled="!token || pendingUpdates === 0"
         :loading="loading"

@@ -51,8 +51,9 @@
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api'
 import { routes } from './plugins/router'
-import { darkTheme } from '@/utils/dark-theme'
+import { darkTheme } from './utils/dark-theme'
 
+export const drawer = ref(false)
 export default defineComponent({
   name: 'App',
   setup(
@@ -63,7 +64,6 @@ export default defineComponent({
       },
     }
   ) {
-    const drawer = ref(false)
     const { toggleDarkTheme } = darkTheme(theme)
 
     // `slice` to drop fallback route

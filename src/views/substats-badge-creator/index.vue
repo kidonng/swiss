@@ -6,6 +6,13 @@
         Creator
       </span>
     </v-row>
+    <v-row class="mb-2">
+      <strong>
+        ℹ️ This page is no longer updating. Please use the official
+        <a href="https://substats.spencerwoo.com/builder/">Badge Builder</a>
+        instead.
+      </strong>
+    </v-row>
     <v-row>
       <v-select label="Source" v-model="source" :items="items" />
     </v-row>

@@ -7,9 +7,12 @@
       What is this
     </v-row>
     <v-row>
-      Notion doesn't support embedding links containing hash (which will get
-      stripped), this tool convert diagrams.net link into embeddable link which
-      Notion supports.
+      <span>
+        <a href="https://www.notion.so/">Notion</a> doesn't support embedding
+        links containing hash (which will get stripped), this tool convert
+        <a href="https://www.diagrams.net/">diagrams.net</a> link into
+        embeddable link which Notion supports.
+      </span>
     </v-row>
     <v-row>
       <v-text-field label="diagrams.net link" v-model="url" />
