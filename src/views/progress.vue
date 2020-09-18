@@ -18,14 +18,45 @@
 
 <script lang="ts">
 import { defineComponent, ref, onUnmounted } from '@vue/composition-api'
-import { moments } from './utils'
+import dayjs from 'dayjs'
+import isLeapYear from 'dayjs/plugin/isLeapYear'
+import isoWeek from 'dayjs/plugin/isoWeek'
+
+dayjs.extend(isLeapYear)
+dayjs.extend(isoWeek)
+
+const moments = () => {
+  const now = dayjs()
+  const days = [
+    31,
+    now.isLeapYear() ? 29 : 28,
+    31,
+    30,
+    31,
+    30,
+    31,
+    31,
+    30,
+    31,
+    30,
+    31,
+  ]
+  const minute = now.second() / 60
+  const hour = (now.minute() + minute) / 60
+  const day = (now.hour() + hour) / 24
+  const week = (now.isoWeekday() - 1 + day) / 7
+  const month = (now.date() - 1 + day) / days[now.month()]
+  const year = (now.month() + month) / 12
+
+  return { now, days, minute, hour, day, week, month, year }
+}
 
 export default defineComponent({
   name: 'progress-alt',
   setup() {
     const getMoments = () => {
-      const { year, month, week, day, hour, minute } = moments()
-      return { year, month, week, day, hour, minute }
+      const { now, days, ..._moments } = moments()
+      return _moments
     }
     const _moments = ref(getMoments())
 

@@ -1,4 +1,57 @@
-export const logos = {
+<template>
+  <v-col cols="10" lg="4">
+    <v-row class="text-h4 mb-4" justify="center">
+      <span>
+        <a href="https://github.com/spencerwooo/Substats">Substats</a> Badge
+        Creator
+      </span>
+    </v-row>
+    <v-row class="mb-2">
+      <strong>
+        ℹ️ This page is no longer updating. Please use the official
+        <a href="https://substats.spencerwoo.com/builder/">Badge Builder</a>
+        instead.
+      </strong>
+    </v-row>
+    <v-row>
+      <v-select label="Source" v-model="source" :items="items" />
+    </v-row>
+    <v-row>
+      <v-text-field label="Query Key" v-model="queryKey" />
+    </v-row>
+    <template v-if="result">
+      <v-row class="flex-column">
+        <div class="text-caption text--secondary mb-2">Badge</div>
+        <a class="mx-auto mb-2" :href="result.link">
+          <v-img :src="result.image" alt="Badge" />
+        </a>
+      </v-row>
+      <v-row v-for="(value, label) in result.items" :key="label">
+        <v-text-field :label="label" :value="value" readonly>
+          <template #append-outer>
+            <v-tooltip bottom>
+              <template #activator="{ on, attrs }">
+                <v-icon @click="copy(value)" v-bind="attrs" v-on="on">
+                  mdi-content-copy
+                </v-icon>
+              </template>
+              <span>Copy</span>
+            </v-tooltip>
+          </template>
+        </v-text-field>
+      </v-row>
+    </template>
+    <v-snackbar v-model="snackbar" timeout="2000">
+      <v-icon color="success">mdi-check</v-icon> Copied!
+    </v-snackbar>
+  </v-col>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref, computed } from '@vue/composition-api'
+import _copy from 'copy-text-to-clipboard'
+
+const logos = {
   bilibili:
     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAD7ElEQVR4nO2dW9WrMBCFK6ESkFAJSKiESqgEHCABCZWAhEpAAhL2ecik5dDc/pXLBDLfWnlqy0xmJ5BMQnq5CIIgCIIgCIIgCIIgCEIBAHQAemYfrgCunD6wAKAHsEKxALgx bCQD8/S9tmgVqeDr1lLigDgZvDhXso K9TyTBQRwRJ8AHjntl0Flh5QRAQK/mKxPeayWx2OXpBNBKiHvi34b7T2MC4pAvW6twR/RwkRKPizBN8CgEcuESj4Lwm BwBjahEk H8EwJRKhOaCDzW8e1JLfkUUH1NgmR3XmHffHR1l 72BSs8d7w8U JDAnZERQMcV CtUi7dNqFqibB4J7vtrq7xKCuAasbTMXCL4T 5aVk6 2xHUrWdhruAR6HIJcOeu2UHI8zyAe2ytWfEdWz9PVvQ8YAmIQ5dDAB9LFsMVAv8oMO2zAGrC5WNIarRiAuKR9jYEd9pY08aa6uUzIHGRdkgKd8pY0yc1WjEBAqypDYoAG0QAZkQAZkQAZkQAZk4vANQenjsSzS3I/wcSbXU5jQBUkRtdf4Rar90v8kSv3 I3ffCCSpk8I/w lgDkdI/v2rEp2CaiWm1AsDQLlDAD dlFXLMeAaCSeLZdaSFE5VUQNot38cKuEeBgAsSuG0flVZBmEanbXfNQAsS0fgBYIn2fIu3/BBMHEyBmDXlFfA8IzeHb Ems4WAChKykrVA9ZfsQTL57jXzRg4A5wC/A8N4ADiZAZwm2XjW75Qh2KOTfA0p4kygPw28OJcCVgn3nDnYo2EwEYRgGH0qAMyICMCMCMCMCMCMCMCMCMCMCfP3qwHDOQ4AAUekTk8FaBRihJnZdYbvtCGC7LvmkM63GjVDINPFrQgCq5ETXfmMzI90FXzPvfqt7x4rEu/ZaEcCUxFvgz2zO BUn6UkoaEEAsptiMSX5e8FoRYCN7cVgb4Vq7U/H50Pq4JNP7Qiw8UFnJwcK tXy Wj6PLEvPgHSHv5UgwA1IQIwwyFAyLJin9RoxYgAzAQIkPwNmf26busC OIx5TDqo5nDT F/SS/9CYzwb No49zNy2evkYv0LywGGAXUvp6eSneycqOic0w20k7CNgKE7jJunSGLACTCxF27ylmQc98T5MQUH49swd I0HPXslLKnT0N wnkrTKi9JZL/L9i1SorMmdeQ4TQQ7OFMxIMzGD45w8nUL1im7efENZLJpgPSw0pfz0cdt4U3230Td/Tvx2R6d2FrHhEWLkq5PELOMsRPHCPnAZGv1xJteL7jbJiaW3sB2nDvPC/osSYvjRQz4cJ6n7KO3rYQL7M L6nVtfDVRAEQRAEQRAEQRAEIZ5/SAXmdfXaoQsAAAAASUVORK5CYII=',
   coolapk:
@@ -16,7 +69,7 @@ export const logos = {
 }
 
 // https://substats.spencerwoo.com/api.html
-export const sources: Record<
+const sources: Record<
   string,
   {
     category: string
@@ -256,9 +309,9 @@ export const sources: Record<
   },
 }
 
-export type Source = keyof typeof sources
+type Source = keyof typeof sources
 
-export const badge = (source: Source, queryKey: string) => {
+const badge = (source: Source, queryKey: string) => {
   const {
     title,
     logo,
@@ -298,3 +351,38 @@ export const badge = (source: Source, queryKey: string) => {
 
   return { api, image, markdown, link }
 }
+
+export default defineComponent({
+  name: 'substats-badge-creator',
+  setup() {
+    const items = Object.entries(sources).map(
+      ([value, { category, title }]) => ({
+        text: `${category} - ${title}`,
+        value,
+      })
+    )
+    const source = ref<Source>('github')
+    const queryKey = ref('spencerwooo')
+    const result = computed(() => {
+      const _badge = badge(source.value, queryKey.value)
+
+      return {
+        ..._badge,
+        items: {
+          Image: _badge.image,
+          Markdown: _badge.markdown,
+          API: _badge.api,
+        },
+      }
+    })
+    const snackbar = ref(false)
+
+    const copy = (content: string) => {
+      _copy(content)
+      snackbar.value = true
+    }
+
+    return { items, source, queryKey, result, copy, snackbar }
+  },
+})
+</script>

@@ -18,7 +18,7 @@ export const routes: RouteConfig[] = [
     path: '/av-bv-converter',
     component: () =>
       import(
-        /* webpackChunkName: "av-bv-converter" */ '../views/av-bv-converter/index.vue'
+        /* webpackChunkName: "av-bv-converter" */ '../views/av-bv-converter.vue'
       ),
     meta: {
       icon: 'swap-horizontal',
@@ -29,7 +29,7 @@ export const routes: RouteConfig[] = [
     path: '/cet-score-query',
     component: () =>
       import(
-        /* webpackChunkName: "cet-score-query" */ '../views/cet-score-query/index.vue'
+        /* webpackChunkName: "cet-score-query" */ '../views/cet-score-query.vue'
       ),
     meta: {
       icon: 'counter',
@@ -60,7 +60,7 @@ export const routes: RouteConfig[] = [
     path: '/id-number',
     component: () =>
       import(
-        /* webpackChunkName: "id-number" */ '../views/id-number/index.vue'
+        /* webpackChunkName: "id-number" */ '../views/id-number.vue'
       ),
     meta: {
       icon: 'identifier',
@@ -82,7 +82,7 @@ export const routes: RouteConfig[] = [
     path: '/miui-dev-link',
     component: () =>
       import(
-        /* webpackChunkName: "miui-dev-link" */ '../views/miui-dev-link/index.vue'
+        /* webpackChunkName: "miui-dev-link" */ '../views/miui-dev-link.vue'
       ),
     meta: {
       icon: 'link',
@@ -92,7 +92,7 @@ export const routes: RouteConfig[] = [
     name: 'Progress',
     path: '/progress',
     component: () =>
-      import(/* webpackChunkName: "progress" */ '../views/progress/index.vue'),
+      import(/* webpackChunkName: "progress" */ '../views/progress.vue'),
     meta: {
       icon: 'progress-clock',
     },
@@ -102,7 +102,7 @@ export const routes: RouteConfig[] = [
     path: '/substats-badge-creator',
     component: () =>
       import(
-        /* webpackChunkName: "substats-badge-creator" */ '../views/substats-badge-creator/index.vue'
+        /* webpackChunkName: "substats-badge-creator" */ '../views/substats-badge-creator.vue'
       ),
     meta: {
       icon: 'shield-star',
