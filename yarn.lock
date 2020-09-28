@@ -211,6 +211,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sindresorhus/is@npm:^3.1.1":
+  version: 3.1.2
+  resolution: "@sindresorhus/is@npm:3.1.2"
+  checksum: da0047761ed8f7803955bedefe75324f3601b950b98c38f6e5e409ed3ce4c07035ed2733cce9b48377d9fc8cfbaa5b2aa8bac0505188a7c5b65a06c47057a610
+  languageName: node
+  linkType: hard
+
 "@soda/friendly-errors-webpack-plugin@npm:^1.7.1":
   version: 1.7.1
   resolution: "@soda/friendly-errors-webpack-plugin@npm:1.7.1"
@@ -573,6 +580,17 @@ __metadata:
     ts-node: 8.9.1
     typescript: 3.9.3
   checksum: 75eeb3345d33661b59094f01f313cd33e195aa276b9e7617480bd8088308e331ba49dc87dade0b9925d255204dd6b03357a6d0dbb4fda2363bfeba02c3637401
+  languageName: node
+  linkType: hard
+
+"@vercel/node@npm:^1.8.3":
+  version: 1.8.3
+  resolution: "@vercel/node@npm:1.8.3"
+  dependencies:
+    "@types/node": "*"
+    ts-node: 8.9.1
+    typescript: 3.9.3
+  checksum: 3eaada512d2a7fc6443ce9f4295373f2c6b696dd08bcb279fe7a9a5591e6521518c191a067a1f73124840992c30225cbab5a3421dbc6d9e4398918defcc4ed35
   languageName: node
   linkType: hard
 
@@ -2536,6 +2554,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cors-proxy@workspace:api/cors-proxy":
+  version: 0.0.0-use.local
+  resolution: "cors-proxy@workspace:api/cors-proxy"
+  dependencies:
+    "@vercel/node": ^1.8.3
+    got: ^11.7.0
+  languageName: unknown
+  linkType: soft
+
 "cosmiconfig@npm:^5.0.0":
   version: 5.2.1
   resolution: "cosmiconfig@npm:5.2.1"
@@ -4270,6 +4297,25 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"got@npm:^11.7.0":
+  version: 11.7.0
+  resolution: "got@npm:11.7.0"
+  dependencies:
+    "@sindresorhus/is": ^3.1.1
+    "@szmarczak/http-timer": ^4.0.5
+    "@types/cacheable-request": ^6.0.1
+    "@types/responselike": ^1.0.0
+    cacheable-lookup: ^5.0.3
+    cacheable-request: ^7.0.1
+    decompress-response: ^6.0.0
+    http2-wrapper: ^1.0.0-beta.5.2
+    lowercase-keys: ^2.0.0
+    p-cancelable: ^2.0.0
+    responselike: ^2.0.0
+  checksum: 780b4b1d33d1a08aa7ae044baa379c0abe1b781ae1101ca0fc8b335195386a0653aa0d9af1ff3f8dd02020fd75aabdf62358988473edf869f34202cc21fd9ce0
+  languageName: node
+  linkType: hard
+
 "graceful-fs@npm:^4.1.11, graceful-fs@npm:^4.1.15, graceful-fs@npm:^4.1.2, graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.2, graceful-fs@npm:^4.2.3":
   version: 4.2.4
   resolution: "graceful-fs@npm:4.2.4"
@@ -4660,7 +4706,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"http2-wrapper@npm:^1.0.0-beta.5.0":
+"http2-wrapper@npm:^1.0.0-beta.5.0, http2-wrapper@npm:^1.0.0-beta.5.2":
   version: 1.0.0-beta.5.2
   resolution: "http2-wrapper@npm:1.0.0-beta.5.2"
   dependencies:

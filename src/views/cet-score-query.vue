@@ -43,11 +43,12 @@
 import { defineComponent, ref, onMounted } from '@vue/composition-api'
 import ky from 'ky'
 
-const dataScript = 'http://cet.neea.edu.cn/cet/js/data.js'
-const proxy = 'https://cors-anywhere.herokuapp.com/'
-
 const getData = async () => {
-  const script = await ky(`${proxy}${dataScript}`).text()
+  const script = await ky('/api/cors-proxy', {
+    searchParams: {
+      _url: 'http://cet.neea.edu.cn/cet/js/data.js',
+    },
+  }).text()
   const dq = JSON.parse(script.substring(7, script.length - 2))
 
   return [

@@ -62,17 +62,15 @@ export default defineComponent({
       loading.value = true
 
       // https://gitlab.com/subversion/wpsnitch
-      const res = await ky(
-        'https://cors-anywhere.herokuapp.com/https://storeedgefd.dsx.mp.microsoft.com/v8.0/pages/pdp',
-        {
-          searchParams: {
-            productId: productId.value,
-            market: market.value,
-            locale: locale.value,
-            appversion: '11703.1001.45.0',
-          },
-        }
-      ).json<any[]>()
+      const res = await ky('/api/cors-proxy', {
+        searchParams: {
+          _url: 'https://storeedgefd.dsx.mp.microsoft.com/v8.0/pages/pdp',
+          productId: productId.value,
+          market: market.value,
+          locale: locale.value,
+          appversion: '11703.1001.45.0',
+        },
+      }).json<any[]>()
 
       info.value = last(res).Payload
       loading.value = false

@@ -99,9 +99,12 @@ export default defineComponent({
     const latest = async () => {
       downloading.value = true
 
-      const blob = await ky(
-        'https://cors-anywhere.herokuapp.com/https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat'
-      ).blob()
+      const blob = await ky('/api/cors-proxy', {
+        searchParams: {
+          _url:
+            'https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat',
+        },
+      }).blob()
       file.value = new File([blob], 'latest.dat')
 
       downloading.value = false
