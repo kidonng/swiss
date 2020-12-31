@@ -48,7 +48,7 @@ export default defineComponent({
     const converted = computed(() => {
       try {
         const { search, hash } = new URL(url.value)
-        return `https://swiss.vercel.app/api/diagrams${search}&hash=${hash.slice(
+        return `${location.origin}/api/diagrams${search}&hash=${hash.slice(
           1
         )}`
       } catch {}
