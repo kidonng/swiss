@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@vue/composition-api": "^1.0.0-beta.14",
-    "copy-text-to-clipboard": "^2.2.0",
+    "copy-text-to-clipboard": "^3.0.0",
     "dayjs": "^1.8.32",
     "ky": "^0.23.0",
     "lodash": "^4.17.19",

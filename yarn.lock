@@ -2518,10 +2518,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"copy-text-to-clipboard@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "copy-text-to-clipboard@npm:2.2.0"
-  checksum: 574c2883637e9a1c1024a7ac33374acbc55891e6023c35f79fe4d0d238b6d79923f8498c02560aff537bc07223e2774c87fd3d10dc5aab2fb8e031dfdff839f7
+"copy-text-to-clipboard@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "copy-text-to-clipboard@npm:3.0.0"
+  checksum: 7863b9086a5dfb691df5e86d6182c1f0636db8e71c1e51b333389453f29683df40baca38e520c300590760acc38a3d6ad523c8d9e66963e8e349a32fe5380938
   languageName: node
   linkType: hard
 
@@ -9047,7 +9047,7 @@ fsevents@~2.1.2:
     "@vue/cli-plugin-typescript": ^4.5.6
     "@vue/cli-service": ^4.5.6
     "@vue/composition-api": ^1.0.0-beta.14
-    copy-text-to-clipboard: ^2.2.0
+    copy-text-to-clipboard: ^3.0.0
     dayjs: ^1.8.32
     ky: ^0.23.0
     lodash: ^4.17.19
