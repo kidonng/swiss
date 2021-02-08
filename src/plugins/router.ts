@@ -59,9 +59,7 @@ export const routes: RouteConfig[] = [
     name: 'ID Number',
     path: '/id-number',
     component: () =>
-      import(
-        /* webpackChunkName: "id-number" */ '../views/id-number.vue'
-      ),
+      import(/* webpackChunkName: "id-number" */ '../views/id-number.vue'),
     meta: {
       icon: 'identifier',
     },
@@ -89,10 +87,12 @@ export const routes: RouteConfig[] = [
     },
   },
   {
-    name: 'Progress',
-    path: '/progress',
+    name: 'Time Progress',
+    path: '/time-progress',
     component: () =>
-      import(/* webpackChunkName: "progress" */ '../views/progress.vue'),
+      import(
+        /* webpackChunkName: "time-progress" */ '../views/time-progress.vue'
+      ),
     meta: {
       icon: 'progress-clock',
     },
