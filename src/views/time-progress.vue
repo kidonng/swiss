@@ -1,8 +1,6 @@
 <template>
   <v-col cols="10" lg="6">
-    <v-row class="text-h4 mb-4" justify="center">
-      Progress
-    </v-row>
+    <v-row class="text-h4 mb-4" justify="center">Time Progress</v-row>
     <v-row
       v-for="(value, unit) in _moments"
       :class="['unit', unit !== 'hour' && 'white--text', unit]"
@@ -48,7 +46,7 @@ const moments = () => {
   const month = (now.date() - 1 + day) / days[now.month()]
   const year = (now.month() + month) / 12
 
-  return { now, days, minute, hour, day, week, month, year }
+  return { year, month, week, day, hour, minute, now, days }
 }
 
 export default defineComponent({

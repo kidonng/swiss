@@ -1,11 +1,7 @@
 <template>
   <v-col cols="10" lg="4">
-    <v-row class="text-h4 mb-4" justify="center">
-      Diagrams
-    </v-row>
-    <v-row class="text-h6">
-      What is this
-    </v-row>
+    <v-row class="text-h4 mb-4" justify="center"> Diagrams </v-row>
+    <v-row class="text-h6"> What is this </v-row>
     <v-row>
       <span>
         <a href="https://www.notion.so/">Notion</a> doesn't support embedding
@@ -15,7 +11,16 @@
       </span>
     </v-row>
     <v-row>
-      <v-text-field label="diagrams.net link" v-model="url" />
+      <strong>
+        ℹ️ This page is deprecated, just choose File > Embed > Notion... on
+        diagrams.net.
+      </strong>
+    </v-row>
+    <v-row>
+      <v-text-field
+        placeholder="https://viewer.diagrams.net/..."
+        v-model="url"
+      />
     </v-row>
     <v-row v-if="converted">
       <v-text-field label="Converted" :value="converted" readonly>
@@ -39,25 +44,24 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed } from '@vue/composition-api'
-import _copy from 'copy-text-to-clipboard'
 
 export default defineComponent({
   name: 'diagrams',
   setup() {
     const url = ref('')
     const converted = computed(() => {
+      if (!url.value.startsWith('https://viewer.diagrams.net/')) return
+
       try {
         const { search, hash } = new URL(url.value)
-        return `${location.origin}/api/diagrams${search}&hash=${hash.slice(
-          1
-        )}`
+        return `${location.origin}/api/diagrams${search}&hash=${hash.slice(1)}`
       } catch {}
     })
 
     const snackbar = ref(false)
 
-    const copy = (content: string) => {
-      _copy(content)
+    const copy = async (content: string) => {
+      await navigator.clipboard.writeText(content)
       snackbar.value = true
     }
 

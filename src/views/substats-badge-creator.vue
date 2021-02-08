@@ -49,7 +49,6 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed } from '@vue/composition-api'
-import _copy from 'copy-text-to-clipboard'
 
 const logos = {
   bilibili:
@@ -377,8 +376,8 @@ export default defineComponent({
     })
     const snackbar = ref(false)
 
-    const copy = (content: string) => {
-      _copy(content)
+    const copy = async (content: string) => {
+      await navigator.clipboard.writeText(content)
       snackbar.value = true
     }
 
