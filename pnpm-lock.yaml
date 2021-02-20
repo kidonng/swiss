@@ -1,7 +1,7 @@
 dependencies:
   '@vue/composition-api': 1.0.0-rc.1_vue@2.6.12
   dayjs: 1.10.4
-  ky: 0.26.0
+  ky: 0.27.0
   lodash: 4.17.20
   protobufjs: 6.10.2
   vue: 2.6.12
@@ -4159,12 +4159,12 @@ packages:
       node: '>= 8'
     resolution:
       integrity: sha512-ZRbnvdg/NxqzC7L9Uyqzf4psi1OM4Cuc+sJAkQPjO6XkQIJTNbfK2Rsmbw8fx1p2mkZdp2FZYo2+LwXYY/uwIA==
-  /ky/0.26.0:
+  /ky/0.27.0:
     dev: false
     engines:
       node: '>=12'
     resolution:
-      integrity: sha512-j2YwAGYuD/XXoyzzUYn1N9NEGoAukkONMea2uLanMPWTqumkwme9eWgf2SjhRKNRb/60FDYStJYL582dbbt9Mw==
+      integrity: sha512-pgaBuB6wI9DdMSOZBVh2WkcbkAdEG5AUEWuNhtThu6FLIpDbzqzC/fSMmqr/j1wwQyW3SP3KGau7EbzWNkQ/yg==
   /launch-editor-middleware/2.2.1:
     dependencies:
       launch-editor: 2.2.1
@@ -7756,7 +7756,7 @@ specifiers:
   '@vue/cli-service': ^4.5.6
   '@vue/composition-api': ^1.0.0-beta.14
   dayjs: ^1.8.32
-  ky: ^0.26.0
+  ky: ^0.27.0
   lodash: ^4.17.19
   prettier: ^2.0.5
   protobufjs: ^6.10.1
