@@ -1,18 +1,8 @@
 # 🔪 Swiss
 
-Swiss is a collection of random utilities, mostly for [@kidonng](https://github.com/kidonng)'s personal use.
+Swiss is a collection of random utilities. You may or may not find theme useful.
 
 ## API
-
-API ([`/api`](api)) are free to use, but responses won't include CORS headers for the moment.
-
-### `cet-score`
-
-(Work in progress)
-
-### `diagrams`
-
-(Work in progress)
 
 ### `xkcd-why`
 
